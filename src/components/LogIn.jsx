@@ -4,13 +4,11 @@ import {Alert, Form, Button, Card} from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
 import {Link, useHistory} from "react-router-dom"
 
-
-export default function SignUp() {
+export default function LogIn() {
     
     const emailRef = useRef()
     const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
-    const { signUp, currentUser} = useAuth()
+    const { login} = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
@@ -18,17 +16,13 @@ export default function SignUp() {
     async function handleSubmit(ev){
         ev.preventDefault()
 
-        if(passwordRef.current.value !== passwordConfirmRef.current.value){
-            return setError('las contraseñas no coinciden')
-        }
-
         try {
             setError('')
             setLoading(true)
-            await signUp(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
             history.push("/")
         } catch {
-            setError('ocurrio un error al intertar registrar ')
+            setError('ocurrio un error al intertar iniciar sesión')
         }
 
         setLoading(false)
@@ -38,8 +32,8 @@ export default function SignUp() {
         <>
         <Card>
             <Card.Body>
-                <h2 className="text-center mb-4">Registro</h2>
-                {currentUser.email}
+                <h2 className="text-center mb-4">Iniciar Sesión</h2>
+  
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                     <Form.Group id="email">
@@ -52,17 +46,13 @@ export default function SignUp() {
                          <Form.Control type="password" ref={passwordRef} required />
                     </Form.Group>
 
-                    <Form.Group id="password-confirm">
-                         <Form.Label>Confirmación de contraseña</Form.Label>
-                         <Form.Control type="password" ref={passwordConfirmRef} required />
-                    </Form.Group>
-                    <Button disabled={loading} className="w-100"  type="submit">Registrarse</Button>
+                    <Button disabled={loading} className="w-100"  type="submit">Iniciar</Button>
                 </Form>
             </Card.Body>
         </Card>
         
         <div className="w-100 text-center mt-2">
-            ¿Tienes una cuenta ya? <Link to="/login">Inicia sesión </Link>
+            ¿No te has registrado aún? <Link to="/signup" >Intentalo</Link>, será rápido 
         </div>
         </>
     )
