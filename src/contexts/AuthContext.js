@@ -15,6 +15,7 @@ export default function AuthProvider({children}) {
     function login(email,password){
         return auth.signInWithEmailAndPassword(email,password)
     }
+    
 
     function signUp(email, password){
         return auth.createUserWithEmailAndPassword(email, password)
