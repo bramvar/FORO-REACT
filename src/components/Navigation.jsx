@@ -25,8 +25,8 @@ const Navigation = ()=> {
                 <Container>
                     <Navbar.Brand href="/">SIMPLE FORO</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="">Home</Nav.Link>
-                        
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/myprofile">Perfil</Nav.Link>
                     </Nav>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">

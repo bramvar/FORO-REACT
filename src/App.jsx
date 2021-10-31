@@ -8,6 +8,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 
 import LogIn from "./components/LogIn"
 import PrivateRoute from "./components/PrivateRoute"
+import Profile from "./components/Profile"
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
                                  <PrivateRoute exact path="/" component={Foro} />
                                  <Route path="/signup" component={SignUp} />
                                  <Route path="/login" component={LogIn} />
+                                
                              </Switch>
                          </AuthProvider>
                     </Router>
