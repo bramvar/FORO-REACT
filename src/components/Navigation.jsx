@@ -1,16 +1,26 @@
 import React, {useState} from 'react'
-import { Container, Navbar, Nav,Button} from 'react-bootstrap'
+import { Container, Navbar, Nav,Button,Alert} from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
+import {Link, useHistory} from "react-router-dom"
 
 const Navigation = ()=> {
 
-    const {currentUser}=useAuth()
+    const [error, setError]=useState("")
+    const history=useHistory()
+    const {currentUser, logout}=useAuth()
 
-    function handleLogout(){
-
+    async function handleLogout(){
+        setError("")
+        try {
+            await logout()
+            history.push('/login')   
+        } catch (error) {
+            setError("oh, hubo un error al cerrar sesión")
+        }
     }
 
     return (
+        <Container>
         <Navbar style={{width:'100%'}} expand="lg" bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="/">SIMPLE FORO</Navbar.Brand>
@@ -25,6 +35,8 @@ const Navigation = ()=> {
                     </Navbar.Collapse>
                 </Container>
          </Navbar>
+         {error && <Alert variant="danger">{error}</Alert>}
+         </Container>
     )
 }
 
