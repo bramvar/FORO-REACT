@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/FORO-REACT/static/css/main.1a8afd85.chunk.css",
+    "main.js": "/FORO-REACT/static/js/main.e9c46f17.chunk.js",
+    "main.js.map": "/FORO-REACT/static/js/main.e9c46f17.chunk.js.map",
+    "runtime-main.js": "/FORO-REACT/static/js/runtime-main.af1e2d92.js",
+    "runtime-main.js.map": "/FORO-REACT/static/js/runtime-main.af1e2d92.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/FORO-REACT/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.d7348417.chunk.js": "/FORO-REACT/static/js/2.d7348417.chunk.js",
+    "static/js/2.d7348417.chunk.js.map": "/FORO-REACT/static/js/2.d7348417.chunk.js.map",
+    "index.html": "/FORO-REACT/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/FORO-REACT/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.1a8afd85.chunk.css.map": "/FORO-REACT/static/css/main.1a8afd85.chunk.css.map",
+    "static/js/2.d7348417.chunk.js.LICENSE.txt": "/FORO-REACT/static/js/2.d7348417.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af1e2d92.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.d7348417.chunk.js",
+    "static/css/main.1a8afd85.chunk.css",
+    "static/js/main.e9c46f17.chunk.js"
+  ]
+}
