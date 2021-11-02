@@ -5,15 +5,29 @@ import Discussion from './Discussion'
 import db from "../firebase.js"
 import Modal from './modals/Modal'
 
+
 export default function PostSet() {
 
     const [active, setActive] = useState(false)
+    const [inputs, setInputs] = useState({});
 
     const toggle = () => {
         setActive(!active)
     }
 
-    
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}))
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(inputs);
+    }
+
+    function postDiscussion(title,message){
+        var file=JSON.stringify({creator: "god", title: title, godMessage: message})
+    }
 
     const [discussions, setDiscussions] = useState([])
     console.log(discussions)
@@ -37,7 +51,27 @@ export default function PostSet() {
 
             <Modal active={active} toggle={toggle}>
 
-                <h1>modal test</h1>
+
+                
+               {  <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formBasicEmail">
+                        <label>Título</label>
+                        <input type="text" name="title" value={inputs.title || ""}
+                        onChange={handleChange}/>
+                        
+                    </Form.Group>
+
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <label>Mensaje</label>
+                        <input as="textarea" rows="3" type="text" name="message" value={inputs.message || ""}
+                        />
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit" >
+                        Enviar
+                    </Button>
+                </Form>
+}
             </Modal>
         </div>
     )
