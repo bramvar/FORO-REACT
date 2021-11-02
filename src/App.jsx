@@ -14,7 +14,7 @@ const App = () => {
     return (
 
             <Container>
-                    <Router>
+                    <Router basename="FORO-REACT">
                          <AuthProvider>
                              <Switch>
                                  <PrivateRoute exact path="/" component={Foro} />
