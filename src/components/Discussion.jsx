@@ -1,8 +1,11 @@
-import React from 'react'
-import { Card, Container } from 'react-bootstrap'
+import React,{useState} from 'react'
+import { Button, Card, Container } from 'react-bootstrap'
 import Comment from './Comment'
 
 export default function Discussion({subject,body,author,comments}) {
+
+    console.log("this", comments)
+
     return (
                 <Card className="w-50" style={{marginTop:"50px"}}>
                     <Card.Body>
@@ -12,8 +15,12 @@ export default function Discussion({subject,body,author,comments}) {
                             escrito por {author}
                         </div>
                     </Card.Body>
-                    <Container className="w-70 d-flex justify-content-end flex-column" >
-                        <h4>Comments</h4>
+                    <Container className="w-100 d-flex justify-content-center flex-column" >
+                        <div className="d-flex">
+                            <h4 style={{marginRight:"10px"}}>Comentarios</h4> 
+                            <Button className="w-20" style={{marginBottom:"10px"}} variant="primary" >+</Button>
+                        </div>
+                        
                         {comments.map((c)=>(
                             <Comment reply={c.replyText} author={c.creator}/>
                         ))}

@@ -11,7 +11,7 @@ export default function PostSet() {
 
     useEffect(() =>     
         onSnapshot(collection(db,"discussions"),(snapshot)=>
-            setDiscussions(snapshot.docs.map(doc=>doc.data()))
+            setDiscussions(snapshot.docs.map(doc=>({...doc.data(),id:doc.id})))
         ), [])
 
     return (
@@ -20,12 +20,9 @@ export default function PostSet() {
             <Button className="w-50" type="submit" style={{padding:'10px', marginTop:'20px'}}>+ CREAR NUEVA DISCUCIÓN</Button>
             
             {discussions.map((dis)=>(
-                <Discussion subject={dis.title} body={dis.godMessage} author={dis.creator} comments={dis.replies}/>
+                <Discussion key={dis.id} subject={dis.title} body={dis.godMessage} author={dis.creator} comments={dis.replies}/>
             ))}
-
-            
-            
-            
+ 
         </Container>
     )
 }
