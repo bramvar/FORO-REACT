@@ -15,12 +15,13 @@ export default class modal extends Component {
 
         return (
             <Portal>
-               <div style={styles.wrapper}>
+               {active && (<div style={styles.wrapper}>
                     <div style={styles.window}>
                         <button onClick={toggle} style={styles.close}>x</button>
                         <div>{children}</div>
                     </div>   
                 </div> 
+                )}
             </Portal>
         )
     }

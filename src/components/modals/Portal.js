@@ -10,11 +10,11 @@ export default class Portal extends Component {
         this.el = document.createElement('div')
     }
 
-    componentDidMount() {
+    componentDidMount=()=> {
         portalRoot.appendChild(this.el)
     }
 
-    componentWillUnmount() {
+    componentWillUnmount=()=> {
         portalRoot.removeChild(this.el)
     }
 
