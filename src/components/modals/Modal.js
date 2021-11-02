@@ -17,7 +17,7 @@ export default class modal extends Component {
             <Portal>
                {active && (<div style={styles.wrapper}>
                     <div style={styles.window}>
-                        <button onClick={toggle} style={styles.close}>x</button>
+                        <button style={styles.closeIcon} onClick={toggle} >x</button>
                         <div>{children}</div>
                     </div>   
                 </div> 
@@ -29,7 +29,7 @@ export default class modal extends Component {
 
 const styles = {
     wrapper: {
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
@@ -41,6 +41,7 @@ const styles = {
         zIndex: 1000
     },
     window: {
+        position: 'relative',
         backgroundColor: '#fff',
         padding: '20px',
         borderRadius: '5px',
@@ -51,21 +52,10 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center'
     },
-    close: {
-        position: 'absolute',
-        top: '5px',
-        right: '5px',
-        backgroundColor: '#fff',
-        borderRadius: '50%',
-        width: '30px',
-        height: '30px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer'
-    },
     closeIcon: {
-        fontSize: '20px',
-        color: '#000'
+        position: 'absolute',
+        borderRadius: '5px',
+        top: 0,
+        right: 0
     }
 }
